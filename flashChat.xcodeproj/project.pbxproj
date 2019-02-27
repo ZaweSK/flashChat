@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		D0378BEC22266AF90051B57C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0378BEB22266AF90051B57C /* AppDelegate.swift */; };
-		D0378BEE22266AF90051B57C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0378BED22266AF90051B57C /* ViewController.swift */; };
 		D0378BF122266AF90051B57C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0378BEF22266AF90051B57C /* Main.storyboard */; };
 		D0378BF322266AF90051B57C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0378BF222266AF90051B57C /* Assets.xcassets */; };
 		D0378BF622266AF90051B57C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0378BF422266AF90051B57C /* LaunchScreen.storyboard */; };
+		D0378BFE22266EAA0051B57C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0378BFD22266EAA0051B57C /* WelcomeViewController.swift */; };
+		D0378C0022266EB60051B57C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0378BFF22266EB60051B57C /* LoginViewController.swift */; };
+		D0378C0222266EC10051B57C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0378C0122266EC10051B57C /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D0378BE822266AF90051B57C /* flashChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flashChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0378BEB22266AF90051B57C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D0378BED22266AF90051B57C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D0378BF022266AF90051B57C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0378BF222266AF90051B57C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0378BF522266AF90051B57C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0378BF722266AF90051B57C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0378BFD22266EAA0051B57C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		D0378BFF22266EB60051B57C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D0378C0122266EC10051B57C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +59,10 @@
 			isa = PBXGroup;
 			children = (
 				D0378BEB22266AF90051B57C /* AppDelegate.swift */,
-				D0378BED22266AF90051B57C /* ViewController.swift */,
 				D0378BEF22266AF90051B57C /* Main.storyboard */,
+				D0378BFD22266EAA0051B57C /* WelcomeViewController.swift */,
+				D0378BFF22266EB60051B57C /* LoginViewController.swift */,
+				D0378C0122266EC10051B57C /* RegisterViewController.swift */,
 				D0378BF222266AF90051B57C /* Assets.xcassets */,
 				D0378BF422266AF90051B57C /* LaunchScreen.storyboard */,
 				D0378BF722266AF90051B57C /* Info.plist */,
@@ -135,7 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0378BEE22266AF90051B57C /* ViewController.swift in Sources */,
+				D0378C0022266EB60051B57C /* LoginViewController.swift in Sources */,
+				D0378C0222266EC10051B57C /* RegisterViewController.swift in Sources */,
+				D0378BFE22266EAA0051B57C /* WelcomeViewController.swift in Sources */,
 				D0378BEC22266AF90051B57C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
