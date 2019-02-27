@@ -10,28 +10,48 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
 
+    var animationHasBeenShown = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    
+    
     @IBOutlet var flashChatLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        flashChatLabel.center.x -= flashChatLabel.bounds.width
-        flashChatLabel.alpha = 0
+        navigationController?.navigationBar.isHidden = true
+        
+        if !animationHasBeenShown{
+            flashChatLabel.center.x -= flashChatLabel.bounds.width
+            flashChatLabel.alpha = 0
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut], animations: {
-            self.flashChatLabel.center.x += self.flashChatLabel.bounds.width
-            self.flashChatLabel.alpha = 1
-        }, completion: nil)
+        if !animationHasBeenShown{
+            UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut], animations: {
+                self.flashChatLabel.center.x += self.flashChatLabel.bounds.width
+                self.flashChatLabel.alpha = 1
+            }, completion: nil)
+            
+         animationHasBeenShown = true
+        }
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
     }
     
     /*
