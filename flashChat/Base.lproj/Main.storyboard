@@ -29,7 +29,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xgj-5X-yF4" kind="show" id="Qk7-kL-KRN"/>
+                                    <segue destination="H7a-pz-FrF" kind="show" id="el8-OL-Som"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFO-WG-FRU">
@@ -40,7 +40,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="H7a-pz-FrF" kind="show" id="lpS-8J-mYg"/>
+                                    <segue destination="xgj-5X-yF4" kind="show" id="OEu-xJ-tzT"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="flash chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBb-IX-qJq">
@@ -115,10 +115,62 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pi6-DI-jF8"/>
                     </view>
+                    <connections>
+                        <segue destination="Icl-Rh-McV" kind="show" identifier="goToChat" id="Xk2-QQ-Kh8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JuI-Av-Uoe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2008.8" y="337.78110944527737"/>
+            <point key="canvasLocation" x="2060" y="340"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="SaC-bU-6i7">
+            <objects>
+                <viewController id="Icl-Rh-McV" customClass="ChatViewController" customModule="flashChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nXw-CG-TnD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flv-hq-nnU">
+                                <rect key="frame" x="0.0" y="611" width="375" height="56"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kID-gH-tYj">
+                                        <rect key="frame" x="8" y="13" width="294" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2Z-3N-hiE">
+                                        <rect key="frame" x="331" y="13" width="36" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="Nen-q6-iN7"/>
+                                        </constraints>
+                                        <state key="normal" title="Send"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="kID-gH-tYj" firstAttribute="centerY" secondItem="flv-hq-nnU" secondAttribute="centerY" id="2jV-vF-siw"/>
+                                    <constraint firstItem="l2Z-3N-hiE" firstAttribute="centerY" secondItem="flv-hq-nnU" secondAttribute="centerY" id="iEZ-mI-esA"/>
+                                    <constraint firstItem="kID-gH-tYj" firstAttribute="leading" secondItem="flv-hq-nnU" secondAttribute="leading" constant="8" id="ike-Jx-fqE"/>
+                                    <constraint firstAttribute="trailing" secondItem="l2Z-3N-hiE" secondAttribute="trailing" constant="8" id="mNt-1X-YDx"/>
+                                    <constraint firstItem="l2Z-3N-hiE" firstAttribute="leading" secondItem="kID-gH-tYj" secondAttribute="trailing" constant="29" id="ygs-zt-nIC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="flv-hq-nnU" firstAttribute="trailing" secondItem="sBk-XG-cZS" secondAttribute="trailing" id="BPi-AY-hak"/>
+                            <constraint firstItem="flv-hq-nnU" firstAttribute="leading" secondItem="sBk-XG-cZS" secondAttribute="leading" id="MMs-if-E5D"/>
+                            <constraint firstItem="flv-hq-nnU" firstAttribute="bottom" secondItem="sBk-XG-cZS" secondAttribute="bottom" id="YmM-1T-ZiS"/>
+                            <constraint firstItem="flv-hq-nnU" firstAttribute="top" secondItem="sBk-XG-cZS" secondAttribute="top" constant="547" id="xaR-7d-ihN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sBk-XG-cZS"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ocg-JW-OQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3124" y="57.121439280359823"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="MA8-Ar-t9q">
@@ -136,18 +188,21 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P7n-IS-fn9">
                                 <rect key="frame" x="67.5" y="220" width="240" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mtk-X3-XCf">
                                 <rect key="frame" x="159" y="275" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="register:" destination="xgj-5X-yF4" eventType="touchUpInside" id="9x6-O7-8JA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.95686274509803915" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
@@ -160,10 +215,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="npu-8h-jqm"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="MtX-xO-4YF" id="TMh-n2-4VR"/>
+                        <outlet property="passwordTextField" destination="P7n-IS-fn9" id="x7W-GQ-v9x"/>
+                        <segue destination="Icl-Rh-McV" kind="show" identifier="goToChat" id="den-QC-GKX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXP-M9-dQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2008.8" y="-558.17091454272872"/>
+            <point key="canvasLocation" x="2060" y="-402"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jHE-Bw-MEt">
@@ -187,4 +247,7 @@
     <resources>
         <image name="background" width="562.5" height="1000.5"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="den-QC-GKX"/>
+    </inferredMetricsTieBreakers>
 </document>
