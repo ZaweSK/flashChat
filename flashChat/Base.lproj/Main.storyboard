@@ -90,13 +90,13 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZDy-jE-3Nm">
                                 <rect key="frame" x="75" y="208" width="225" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzf-10-coi">
                                 <rect key="frame" x="168.5" y="274" width="38" height="30"/>
@@ -157,12 +157,30 @@
                                     <constraint firstItem="l2Z-3N-hiE" firstAttribute="leading" secondItem="kID-gH-tYj" secondAttribute="trailing" constant="29" id="ygs-zt-nIC"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e36-dH-Emg">
+                                <rect key="frame" x="0.0" y="64" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KgU-NN-j4M">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KgU-NN-j4M" id="lAN-1O-YEh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="flv-hq-nnU" firstAttribute="trailing" secondItem="sBk-XG-cZS" secondAttribute="trailing" id="BPi-AY-hak"/>
+                            <constraint firstItem="sBk-XG-cZS" firstAttribute="trailing" secondItem="e36-dH-Emg" secondAttribute="trailing" id="FZ7-lG-F1b"/>
+                            <constraint firstItem="e36-dH-Emg" firstAttribute="leading" secondItem="sBk-XG-cZS" secondAttribute="leading" id="JCV-DT-VE1"/>
                             <constraint firstItem="flv-hq-nnU" firstAttribute="leading" secondItem="sBk-XG-cZS" secondAttribute="leading" id="MMs-if-E5D"/>
+                            <constraint firstItem="flv-hq-nnU" firstAttribute="top" secondItem="e36-dH-Emg" secondAttribute="bottom" id="SaS-SG-1fy"/>
                             <constraint firstItem="flv-hq-nnU" firstAttribute="bottom" secondItem="sBk-XG-cZS" secondAttribute="bottom" id="YmM-1T-ZiS"/>
+                            <constraint firstItem="e36-dH-Emg" firstAttribute="top" secondItem="sBk-XG-cZS" secondAttribute="top" id="ar7-ZP-uCW"/>
                             <constraint firstItem="flv-hq-nnU" firstAttribute="top" secondItem="sBk-XG-cZS" secondAttribute="top" constant="547" id="xaR-7d-ihN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sBk-XG-cZS"/>
@@ -188,13 +206,13 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" textContentType="username"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P7n-IS-fn9">
                                 <rect key="frame" x="67.5" y="220" width="240" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mtk-X3-XCf">
                                 <rect key="frame" x="159" y="275" width="57" height="30"/>
@@ -248,6 +266,6 @@
         <image name="background" width="562.5" height="1000.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="den-QC-GKX"/>
+        <segue reference="Xk2-QQ-Kh8"/>
     </inferredMetricsTieBreakers>
 </document>
