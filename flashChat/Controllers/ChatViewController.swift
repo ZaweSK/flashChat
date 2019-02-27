@@ -50,7 +50,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
         
        cell.messageBody!.text = messagesArray[indexPath.row]
-        
+       cell.messageBackground.layer.cornerRadius = 5
 
         
         return cell
@@ -63,5 +63,33 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         return UITableView.automaticDimension
     }
     
-
+    @IBOutlet var sendButton: UIButton!
+    
+    @IBAction func send(_ sender: UIButton) {
+        messageTextField.endEditing(true)
+        
+        messageTextField.isEnabled = false
+        sendButton.isEnabled = false
+        
+        let messagesDB = Database.database().reference().child("Messages")
+        
+        let messageDictionary = [
+            "Sender": Auth.auth().currentUser?.email,
+            "MessageBody" : messageTextField.text!
+        ]
+        
+        messagesDB.childByAutoId().setValue(messageDictionary) { (error, reference) in
+            if error != nil {
+                print(error)
+            }else{
+                print("Message saved succesfully")
+                
+                self.messageTextField.isEnabled = true
+                self.sendButton.isEnabled = true
+                self.messageTextField.text = ""
+            }
+        }
+        
+    }
+    @IBOutlet var messageTextField: UITextField!
 }

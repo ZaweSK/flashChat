@@ -129,7 +129,7 @@
             </objects>
             <point key="canvasLocation" x="2060" y="340"/>
         </scene>
-        <!--Chat View Controller-->
+        <!--Flash Chat-->
         <scene sceneID="SaC-bU-6i7">
             <objects>
                 <viewController id="Icl-Rh-McV" customClass="ChatViewController" customModule="flashChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -152,6 +152,9 @@
                                             <constraint firstAttribute="width" constant="36" id="Nen-q6-iN7"/>
                                         </constraints>
                                         <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="send:" destination="Icl-Rh-McV" eventType="touchUpInside" id="gVw-y9-oTH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -191,7 +194,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sBk-XG-cZS"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jHc-eY-N8A">
+                    <navigationItem key="navigationItem" title="Flash Chat" id="jHc-eY-N8A">
                         <barButtonItem key="rightBarButtonItem" title="Log out" id="DKs-yh-qh9">
                             <connections>
                                 <action selector="logout:" destination="Icl-Rh-McV" id="eTx-pf-IZh"/>
@@ -199,6 +202,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="messageTextField" destination="kID-gH-tYj" id="Poo-Ko-ND8"/>
+                        <outlet property="sendButton" destination="l2Z-3N-hiE" id="sri-qj-X66"/>
                         <outlet property="tableView" destination="e36-dH-Emg" id="sG6-D8-SiR"/>
                     </connections>
                 </viewController>
