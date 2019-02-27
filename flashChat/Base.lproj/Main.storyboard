@@ -75,7 +75,7 @@
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="27.436281859070466"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="Mcy-dE-3Uo">
             <objects>
                 <viewController id="H7a-pz-FrF" customClass="LoginViewController" customModule="flashChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -101,6 +101,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzf-10-coi">
                                 <rect key="frame" x="168.5" y="274" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="login:" destination="H7a-pz-FrF" eventType="touchUpInside" id="ecJ-OZ-Qs1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.95686274509803915" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,7 +118,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pi6-DI-jF8"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Login" id="Nmp-TT-BlO"/>
                     <connections>
+                        <outlet property="emailTextField" destination="Ie9-rd-HbO" id="SDu-8a-XnM"/>
+                        <outlet property="passwordTextField" destination="ZDy-jE-3Nm" id="GZQ-mW-1Ha"/>
                         <segue destination="Icl-Rh-McV" kind="show" identifier="goToChat" id="Xk2-QQ-Kh8"/>
                     </connections>
                 </viewController>
@@ -185,12 +191,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sBk-XG-cZS"/>
                     </view>
+                    <navigationItem key="navigationItem" id="jHc-eY-N8A">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="DKs-yh-qh9">
+                            <connections>
+                                <action selector="logout:" destination="Icl-Rh-McV" id="eTx-pf-IZh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="e36-dH-Emg" id="sG6-D8-SiR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocg-JW-OQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3124" y="57.121439280359823"/>
         </scene>
-        <!--Register View Controller-->
+        <!--Register-->
         <scene sceneID="MA8-Ar-t9q">
             <objects>
                 <viewController id="xgj-5X-yF4" customClass="RegisterViewController" customModule="flashChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -233,6 +249,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="npu-8h-jqm"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Register" id="BRy-Li-Tbk"/>
                     <connections>
                         <outlet property="emailTextField" destination="MtX-xO-4YF" id="TMh-n2-4VR"/>
                         <outlet property="passwordTextField" destination="P7n-IS-fn9" id="x7W-GQ-v9x"/>
