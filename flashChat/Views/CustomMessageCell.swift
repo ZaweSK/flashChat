@@ -15,6 +15,12 @@ class CustomMessageCell: UITableViewCell {
         // Initialization code
     }
 
+    @IBOutlet var avatarImageView: UIImageView!
+    @IBOutlet var senderUsername: UILabel!
+    @IBOutlet var messageBackground: UIView!
+    @IBOutlet var messageBody: UILabel!
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

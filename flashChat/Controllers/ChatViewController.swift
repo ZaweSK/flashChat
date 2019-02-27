@@ -11,7 +11,7 @@ import Firebase
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var messagesArray = ["Ahoj", "Volam sa Kamilko", "Nevolam sa Marcelko"]
+    var messagesArray = ["Ahoj", "Volam sa Kamilko asdsdsd sds dsdsd sd sdsd sd sdsd sd fdf fdfdfd fdfdf dfdffd fdfdf fdfdfd fdf dfdfdf df fdfdf df dfd fdf f ", "Nevolam sa Marcelko"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +44,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath)
         
         cell.textLabel!.text = messagesArray[indexPath.row]
+
         
         return cell
     }
