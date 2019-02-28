@@ -9,10 +9,14 @@
 import UIKit
 import Firebase
 
-class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+{
     
-    var messagesArray = ["Ahoj", "Volam sa Kamilko asdsdsd sds dsdsd sd sdsd sd sdsd sd fdf fdfdfd fdfdf dfdffd fdfdf fdfdfd fdf dfdfdf df fdfdf df dfd fdf f ", "Nevolam sa Marcelko"]
+    var messagesArray = [Message]()
 
+    
+    // MARK: - View Controller Life cycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,11 +25,14 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.register(UINib(nibName: "MyMessageCell", bundle: nil), forCellReuseIdentifier: "myMessageCell")
         
+        tableView.separatorStyle = .none
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 80
+        configureTableView()
         
+        retrieveMessages()
     }
+    
+    // MARK: - @IBActions & @IBOutlets
     
     @IBOutlet var tableView: UITableView!
     
@@ -37,30 +44,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         }catch{
             print("Error signing out \(error)")
         }
-    }
-    
-    
-    
-    // MARK : - Table view data source
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messagesArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
-        
-       cell.messageBody!.text = messagesArray[indexPath.row]
-       cell.messageBackground.layer.cornerRadius = 5
-
-        
-        return cell
-    }
-    
-    
-    // MARK: - Table View Delegate
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
     }
     
     @IBOutlet var sendButton: UIButton!
@@ -92,4 +75,58 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     @IBOutlet var messageTextField: UITextField!
+    
+    
+    
+    // MARK : - Table view data source
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messagesArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
+        
+       cell.messageBody!.text = messagesArray[indexPath.row].messageBody
+       cell.senderName!.text = messagesArray[indexPath.row].sender
+        
+        cell.messageBackground.layer.cornerRadius = 5
+        
+        return cell
+    }
+    
+    
+    // MARK: - Table View Delegate
+    
+    func configureTableView(){
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 80
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    // MARK: - Retrieving the messages from DB
+    func retrieveMessages(){
+        
+        let messageDB = Database.database().reference().child("Messages")
+        
+        messageDB.observe(.childAdded) { (snapshot) in
+            
+            let snapshotValue = snapshot.value as! Dictionary<String,String>
+            
+            let text = snapshotValue["MessageBody"]!
+            let sender = snapshotValue["Sender"]!
+            
+            print("\(sender) : \(text)")
+            
+            let message = Message()
+            message.messageBody = text
+            message.sender = sender
+            
+            self.messagesArray.append(message)
+            self.configureTableView()
+            self.tableView.reloadData()
+        }
+    }
 }

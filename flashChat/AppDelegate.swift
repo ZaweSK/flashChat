@@ -18,12 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         
-    FirebaseConfiguration.shared.setLoggerLevel(FirebaseLoggerLevel.min)
+        FirebaseConfiguration.shared.setLoggerLevel(FirebaseLoggerLevel.min)
         FirebaseApp.configure()
-        
-        
-        let myDatabase = Database.database().reference()
-        myDatabase.setValue("we've got data")
         
         
         return true
