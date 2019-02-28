@@ -10,37 +10,35 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController
+{
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        emailTextField.text = "Peter@gmail.com"
-        passwordTextField.text = "123456"
-       
-    }
+    // MARK: - @IBActions & @IBOutlets
     
-
     @IBOutlet var emailTextField: UITextField!
     
     @IBOutlet var passwordTextField: UITextField!
     
-    
     @IBAction func login(_ sender: UIButton) {
+        
         SVProgressHUD.show()
       
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             
             if error != nil {
-                print(error)
+               
+                // TODO: - present user with error
+               
                 SVProgressHUD.dismiss()
+                
             }else {
+                
                 SVProgressHUD.dismiss()
+                
                 print("Login succesfull")
+                
                 self.performSegue(withIdentifier: "goToChat", sender: self)
             }
         }
-        
     }
-    
 }

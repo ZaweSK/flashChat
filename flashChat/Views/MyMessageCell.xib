@@ -66,6 +66,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="avatarImageView" destination="Mhu-gS-aAo" id="TsJ-34-wXf"/>
                 <outlet property="messageBackground" destination="0e6-Cg-jYg" id="EGD-Xb-C6R"/>
                 <outlet property="messageBody" destination="Ft6-ge-upB" id="zMB-Zg-5fq"/>
                 <outlet property="senderName" destination="3sh-WO-1y9" id="umZ-w7-PHD"/>

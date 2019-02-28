@@ -16,4 +16,6 @@ class MyMessageCell : UITableViewCell {
     @IBOutlet var messageBody: UILabel!
     
     @IBOutlet var senderName: UILabel!
+    
+    @IBOutlet var avatarImageView: UIImageView!
 }
