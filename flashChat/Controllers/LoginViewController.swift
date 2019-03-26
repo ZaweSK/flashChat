@@ -27,15 +27,17 @@ class LoginViewController: UIViewController
             
             if error != nil {
                
-                // TODO: - present user with error
-               
                 SVProgressHUD.dismiss()
+                
+                let alertController = UIAlertController(title: "Error", message: error!.localizedDescription, preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
+               
                 
             }else {
                 
                 SVProgressHUD.dismiss()
-                
-                print("Login succesfull")
                 
                 self.performSegue(withIdentifier: "goToChat", sender: self)
             }
