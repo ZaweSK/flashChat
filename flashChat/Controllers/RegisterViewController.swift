@@ -33,7 +33,6 @@ class RegisterViewController: UIViewController
                 self.present(alertController, animated: true, completion: nil)
                 
             }else{
-                print("Success")
                 
                 SVProgressHUD.dismiss()
                 

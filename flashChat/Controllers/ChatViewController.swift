@@ -25,6 +25,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet var sendButton: UIButton!
     
+    @IBOutlet var messageViewHeightConstraint: NSLayoutConstraint!
+    
+    
     @IBAction func logout(_ sender: UIBarButtonItem) {
         
         do{
@@ -73,6 +76,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        messageTextField.delegate = self
         
         tableView.dataSource = self
         
@@ -148,7 +153,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let sender = snapshotValue["Sender"]!
             
-            print("\(sender) : \(text)")
+//            print("\(sender) : \(text)")
             
             let message = Message()
             message.messageBody = text
@@ -161,4 +166,30 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.tableView.reloadData()
         }
     }
+    
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        messageTextField.endEditing(true)
+    }
+}
+
+
+extension ChatViewController: UITextFieldDelegate {
+    
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        messageViewHeightConstraint.constant = 308
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        messageViewHeightConstraint.constant = 65
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    
+    
 }
