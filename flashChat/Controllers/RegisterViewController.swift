@@ -10,14 +10,9 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class RegisterViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        
-        // Do any additional setup after loading the view.
-    }
+class RegisterViewController: UIViewController
+{
+    // MARK: - @IBActions & @IBOutlests
     
     @IBOutlet var emailTextField: UITextField!
     
@@ -25,18 +20,25 @@ class RegisterViewController: UIViewController {
   
 
     @IBAction func register(_ sender: UIButton) {
+       
         SVProgressHUD.show()
+        
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
 
             if error != nil {
-                print(error)
+                
+                let alertController = UIAlertController(title: "Error", message: error!.localizedDescription, preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
+                
             }else{
                 print("Success")
-                SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "goToChat", sender: self)
                 
+                SVProgressHUD.dismiss()
+                
+                self.performSegue(withIdentifier: "goToChat", sender: self)
             }
-            
         }
     }
 }
